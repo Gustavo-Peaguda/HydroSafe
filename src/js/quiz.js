@@ -161,3 +161,99 @@ document.addEventListener('DOMContentLoaded', function() {
             
             optionsContainer.appendChild(optionElement);
         });
+// Atualizar estado dos botões
+        prevButton.disabled = index === 0;
+        
+        // Se for a última pergunta, mudar texto do botão para "Ver resultado"
+        if (index === questions.length - 1) {
+            nextButton.textContent = 'Ver resultado';
+        } else {
+            nextButton.textContent = 'Próxima';
+        }
+        
+        // Desabilitar botão de próxima pergunta se não houver resposta
+        nextButton.disabled = userAnswers[index] === null;
+    }
+    
+    // Função para mostrar o resultado
+    function showResult() {
+        // Calcular número de respostas corretas
+        const correctAnswers = userAnswers.filter((answer, index) => 
+            answer === questions[index].correctAnswer
+        ).length;
+        
+        // Atualizar texto do resultado
+        correctAnswersElement.textContent = correctAnswers;
+        
+        // Mostrar resultado
+        resultElement.classList.add('visible');
+        
+        // Esconder perguntas e opções
+        questionElement.parentElement.style.display = 'none';
+        optionsContainer.style.display = 'none';
+        
+        // Atualizar botões
+        prevButton.textContent = 'Tentar novamente';
+        prevButton.disabled = false;
+        nextButton.style.display = 'none';
+        
+        // Adicionar evento para reiniciar quiz
+        prevButton.onclick = resetQuiz;
+    }
+    
+    // Função para reiniciar o quiz
+    function resetQuiz() {
+        // Resetar variáveis
+        currentQuestionIndex = 0;
+        userAnswers = Array(questions.length).fill(null);
+        
+        // Esconder resultado
+        resultElement.classList.remove('visible');
+        
+        // Mostrar perguntas e opções
+        questionElement.parentElement.style.display = 'block';
+        optionsContainer.style.display = 'flex';
+        
+        // Resetar botões
+        prevButton.textContent = 'Anterior';
+        prevButton.disabled = true;
+        nextButton.style.display = 'block';
+        nextButton.textContent = 'Próxima';
+        
+        // Restaurar eventos originais
+        prevButton.onclick = goToPrevQuestion;
+        nextButton.onclick = goToNextQuestion;
+        
+        // Mostrar primeira pergunta
+        showQuestion(0);
+    }
+    
+    // Função para ir para a pergunta anterior
+    function goToPrevQuestion() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestion(currentQuestionIndex);
+        }
+    }
+    
+    // Função para ir para a próxima pergunta
+    function goToNextQuestion() {
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion(currentQuestionIndex);
+        } else {
+            showResult();
+        }
+    }
+    
+    // Adicionar eventos aos botões
+    if (prevButton && nextButton) {
+        prevButton.onclick = goToPrevQuestion;
+        nextButton.onclick = goToNextQuestion;
+    }
+    
+    // Inicializar quiz
+    if (quizContainer) {
+        showQuestion(0);
+    }
+});
