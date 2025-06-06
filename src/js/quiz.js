@@ -104,3 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
             correctAnswer: 1
         }
     ];
+
+// Elementos do quiz
+    const quizContainer = document.querySelector('.quiz-container');
+    const questionElement = document.querySelector('.quiz-question p');
+    const optionsContainer = document.querySelector('.quiz-options');
+    const prevButton = document.getElementById('prev-question');
+    const nextButton = document.getElementById('next-question');
+    const resultElement = document.querySelector('.quiz-result');
+    const correctAnswersElement = document.getElementById('correct-answers');
+    
+    // Variáveis de controle
+    let currentQuestionIndex = 0;
+    let userAnswers = Array(questions.length).fill(null);
