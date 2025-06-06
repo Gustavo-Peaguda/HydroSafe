@@ -117,3 +117,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Variáveis de controle
     let currentQuestionIndex = 0;
     let userAnswers = Array(questions.length).fill(null);
+
+// Função para mostrar a pergunta atual
+    function showQuestion(index) {
+
+
+
+
+
+ // Atualizar texto da pergunta
+        questionElement.textContent = `${index + 1}. ${questions[index].question}`;
+        
+        // Limpar opções anteriores
+        optionsContainer.innerHTML = '';
+        
+        // Adicionar novas opções
+        questions[index].options.forEach((option, optionIndex) => {
+            const optionElement = document.createElement('div');
+            optionElement.classList.add('quiz-option');
+            optionElement.textContent = option;
+            
+            // Marcar opção selecionada pelo usuário
+            if (userAnswers[index] === optionIndex) {
+                optionElement.classList.add('selected');
+            }
+            
+            // Adicionar evento de clique
+            optionElement.addEventListener('click', () => {
+                // Remover seleção anterior
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Adicionar seleção à opção clicada
+                optionElement.classList.add('selected');
+                
+                // Salvar resposta do usuário
+                userAnswers[index] = optionIndex;
+                
+                // Habilitar botão de próxima pergunta
+                nextButton.disabled = false;
+            });
+            
+            optionsContainer.appendChild(optionElement);
+        });
