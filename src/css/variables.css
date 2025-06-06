@@ -1,0 +1,79 @@
+:root {
+  /* Cores principais - inspiradas em água e alertas */
+  --primary-color: #0056b3;
+  --primary-color-rgb: 0, 86, 179;
+  --secondary-color: #00a0e3;
+  --secondary-color-rgb: 0, 160, 227;
+  --accent-color: #0091ff;
+  --accent-color-rgb: 0, 145, 255;
+  --warning-color: #e63946;
+  --warning-color-rgb: 230, 57, 70;
+  --success-color: #2a9d8f;
+  --success-color-rgb: 42, 157, 143;
+  
+  /* Cores neutras */
+  --dark-color: #1d3557;
+  --dark-color-rgb: 29, 53, 87;
+  --light-color: #f1faee;
+  --light-color-rgb: 241, 250, 238;
+  --white-color: #ffffff;
+  --white-color-rgb: 255, 255, 255;
+  --black-color: #000000;
+  --black-color-rgb: 0, 0, 0;
+  --gray-color: #6c757d;
+  --gray-color-rgb: 108, 117, 125;
+  --light-gray-color: #e9ecef;
+  --light-gray-color-rgb: 233, 236, 239;
+  
+  /* Temas alternativos */
+  --theme-blue-primary: #0056b3;
+  --theme-blue-secondary: #00a0e3;
+  --theme-blue-accent: #0091ff;
+  
+  --theme-dark-primary: #1d3557;
+  --theme-dark-secondary: #2c3e50;
+  --theme-dark-accent: #34495e;
+  
+  --theme-light-primary: #2a9d8f;
+  --theme-light-secondary: #8ecae6;
+  --theme-light-accent: #90be6d;
+  
+  /* Tipografia */
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Roboto', sans-serif;
+  
+  /* Espaçamentos */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 6rem;
+  
+  /* Bordas e sombras */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --box-shadow-xl: 0 15px 30px rgba(0, 0, 0, 0.15);
+  --box-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  /* Transições */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --gradient-accent: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  --gradient-dark: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+}
