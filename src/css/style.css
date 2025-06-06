@@ -830,3 +830,47 @@ footer {
     height: 300px;
   }
 }
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.vital-signs-icon {
+  width: 180px;
+  height: auto;
+  filter: invert(1);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.vital-signs-icon:hover {
+  transform: scale(1.05);
+  filter: invert(1) drop-shadow(0 0 5px rgba(0, 160, 227, 0.7));
+}
+
+.simulation-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: var(--dark-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-lg);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .vital-signs-icon {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vital-signs-icon {
+    width: 120px;
+  }
+}
